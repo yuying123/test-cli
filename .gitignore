@@ -1,0 +1,9 @@
+
+.vscode
+package-lock.json
+
+.history
+node_modules
+dist
+.DS_Store
+git

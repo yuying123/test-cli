@@ -1,0 +1,21 @@
+{
+  "name": "my-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "mycli": "bin/mycli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "inquirer": "^7.3.3",
+    "mem-fs": "^1.2.0",
+    "mem-fs-editor": "^7.0.1"
+  }
+}
