@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "mycli": "bin/mycli.js"
+    "mycli": "bin/mycli.js",
+    "yycli": "bin/yycli.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,13 @@
     "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
     "mem-fs": "^1.2.0",
-    "mem-fs-editor": "^7.0.1"
+    "mem-fs-editor": "^7.0.1",
+    
+    "commander": "^5.1.0",
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.6",
+    "log-update": "^4.0.0",
+    "ora": "^4.0.4",
+    "shelljs": "^0.8.4"
   }
 }
