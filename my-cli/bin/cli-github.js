@@ -1,7 +1,5 @@
 #!/usr/bin/env node 
-// --这种用法是为了防止操作系统用户没有将node装在默认的/usr/bin路径里。当系统看到这一行的时候，
-// 首先会到env设置里查找node的安装路径，再调用对应路径下的解释器程序完成操作。
-const program = require("commander");
+const commander = require("commander"); //命令行工具
 const download = require("download-git-repo");
 const inquirer = require("inquirer");
 const handlebars = require("handlebars");
@@ -10,15 +8,16 @@ const ora = require("ora");
 const chalk = require("chalk");
 const symbols = require("log-symbols");
 
-program
+commander
   .version("0.0.1", "-v, --version")
-  .command("init <name>")
-  .action(name => {
-    if (fs.existsSync(name)) {
+  .command("init <projectname>")
+  .action(projectname => {
+    if (fs.existsSync(projectname)) {
       // 错误提示项目已存在，避免覆盖原有项目
       console.log(symbols.error, chalk.red("项目已存在"));
       return;
     }
+    // 交互 （问题+答案）
     inquirer
       .prompt([
         {
@@ -31,21 +30,29 @@ program
         }
       ])
       .then(answers => {
+        console.log(answers)
+
+        // 下载一个项目模板到本地
         download(
+          // "github:yuying123/test-cli.git",
           "direct:https://github.com/yuying123/test-cli.git",
-          name,
+          projectname,
           { clone: true },
           err => {
-            const spinner = ora("正在下载模板...");
-            spinner.start();
+
+            const process  = ora("正在下载模板...");
+            process.start(); // 进度条开始
+
             if (!err) {
-              spinner.succeed();
+              process.succeed();
               const meta = {
-                name,
+                projectname,
                 description: answers.description,
                 author: answers.author
               };
-              const fileName = `${name}/package.json`;
+
+              // 将答案重写到package.json
+              const fileName = `${projectname}/package.json`;
               if (fs.existsSync(fileName)) {
                 const content = fs.readFileSync(fileName).toString();
                 const result = handlebars.compile(content)(meta);
@@ -53,7 +60,7 @@ program
               }
               console.log(symbols.success, chalk.green("项目初始化完成"));
             } else {
-              spinner.fail();
+              process .fail();
               console.log(symbols.error, chalk.red(`拉取远程仓库失败${err}`));
             }
           }
@@ -61,5 +68,5 @@ program
       });
   });
 //解析命令行
-program.parse(process.argv);
+commander.parse(process.argv);
 
