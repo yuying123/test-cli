@@ -35,7 +35,7 @@ commander
         // 下载一个项目模板到本地
         download(
           // "github:yuying123/test-cli.git",
-          "direct:https://github.com/yuying123/test-cli.git",
+          "direct:https://github.com/yuying123/cli-template.git",
           projectname,
           { clone: true },
           err => {

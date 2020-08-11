@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: YUYING
  * @Date: 2020-08-11 15:52:37
- * @LastEditTime: 2020-08-11 19:32:58
+ * @LastEditTime: 2020-08-11 19:57:06
  */
 const {promisify} = require('util') // util 是一个Node.js 核心模块，提供常用函数的集合，用于弥补核心JavaScript 的功能 过于精简的不足
 const figlet = promisify(require('figlet')) //  util.promisify() 这个方法,方便快捷的把原来的异步回调方法改成返回 Promise 实例的方法
@@ -35,7 +35,7 @@ module.exports = async name => {
 
   // clone
   log(`创建项目: ${name}`);
-  await clone('direct:https://github.com/yuying123/test-cli.git', name)
+  await clone('direct:https://github.com/yuying123/cli-template.git', name)
 
   // 自动安装依赖
   log('安装依赖')
