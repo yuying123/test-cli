@@ -6,7 +6,7 @@
  */
 
 const chalk = require('chalk'); 
-const fs = require('fs-extra');
+const fs = require("fs");
 const inquirer = require('inquirer');
 //https://www.npmjs.com/package/inquirer
 const memFs = require('mem-fs');

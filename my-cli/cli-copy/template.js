@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require('fs-extra');
+const fs = require("fs");
 const chalk = require('chalk');
 /*
  * @Description: 
@@ -20,11 +20,21 @@ module.exports = function (creator, options, callback) {
   const srcPath = path.join(projectPath, "src")
 
   // 创建项目目录
-  // 同步创建目录 以免文件目录不对齐
-  fs.mkdirSync(projectPath)
-  fs.mkdirSync(pagePath)
-  fs.mkdirSync(srcPath)
-  
+  makeDir(projectPath)
+  makeDir(pagePath)
+  makeDir(srcPath)
+
+  // fs.mkdir(pagePath, { recursive: true }, (err) => {
+  //   if (err){
+  //     console.log(err);
+  //   }
+  // });
+  // fs.mkdir(srcPath, { recursive: true }, (err) => {
+  //   if (err){
+  //     console.log(err);
+  //   }
+  // });
+
   creator.copyTemplate('../../project/package.json', path.join(projectPath, 'package.json'), {
     name,
     description,
@@ -44,5 +54,13 @@ module.exports = function (creator, options, callback) {
     console.log(`${chalk.grey(`创建文件: ${name}/page/login.js`)} ${chalk.green('✔ ')}`);
 
     callback();
+  });
+}
+
+function makeDir(path){
+  fs.mkdirSync(path, { recursive: true }, (err) => {
+    if (err){
+      console.log(err);
+    }
   });
 }

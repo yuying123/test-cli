@@ -58,6 +58,7 @@ commander
                 const result = handlebars.compile(content)(meta);
                 fs.writeFileSync(fileName, result);
               }
+
               console.log(symbols.success, chalk.green("项目初始化完成"));
             } else {
               process .fail();
@@ -69,4 +70,7 @@ commander
   });
 //解析命令行
 commander.parse(process.argv);
+
+
+
 

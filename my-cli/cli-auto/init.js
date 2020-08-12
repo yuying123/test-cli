@@ -40,12 +40,12 @@ module.exports = async name => {
   // 自动安装依赖
   log('安装依赖')
   console.log(spawn);
-  await spawn('npm.cmd',['install'],{cwd: `./${name}`})
+  await spawn('npm',['install'],{cwd: `./${name}`})
   // windows 要写成npm.cmd  
   log(`安装完成：To get Start: cd ${name} \n npm run server`)
 
   // // 自动打开浏览器
   // open(`http://localhost:8080`)
   // // 自动启动项目
-  // await spawn('npm.cmd',['run', 'dev'],{cwd: `./${name}`})
+  // await spawn('npm',['run', 'dev'],{cwd: `./${name}`})
 }
