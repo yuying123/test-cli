@@ -2,16 +2,11 @@
  * @Description: 
  * @Author: YUYING
  * @Date: 2020-08-08 11:59:13
- * @LastEditTime: 2020-08-13 14:47:45
+ * @LastEditTime: 2020-08-13 14:50:04
  */
 var inquirer = require('inquirer')
 inquirer.prompt([
-  // {
-  //   type: 'confirm',
-  //   name: 'test',
-  //   message: 'Are you handsome?',
-  //   default: true
-  // },
+
   // {
   //   type: 'password',
   //   name: 'password',
@@ -27,6 +22,12 @@ inquirer.prompt([
   //     }
   //     return "请输入11位数字";
   //   }
+  // },
+  // {
+  //   type: 'confirm',
+  //   name: 'test',
+  //   message: 'Are you handsome?',
+  //   default: true
   // },
   // {
   //   type: 'list',
