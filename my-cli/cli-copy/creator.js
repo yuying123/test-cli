@@ -2,13 +2,12 @@
  * @Description: 
  * @Author: YUYING
  * @Date: 2020-08-06 16:42:48
- * @LastEditTime: 2020-08-11 19:19:27
+ * @LastEditTime: 2020-08-13 11:42:56
  */
 
 const chalk = require('chalk'); 
 const fs = require("fs");
-const inquirer = require('inquirer');
-//https://www.npmjs.com/package/inquirer
+const inquirer = require('inquirer');//https://www.npmjs.com/package/inquirer
 const memFs = require('mem-fs');
 const memFsEditor = require('mem-fs-editor');
 const path = require('path');
