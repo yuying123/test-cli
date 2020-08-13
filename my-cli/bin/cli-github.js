@@ -10,7 +10,7 @@ const symbols = require("log-symbols");
 
 commander
   .version("0.0.1", "-v, --version")
-  .command("init <projectname>")
+  .command("init <projectname>") // projectname 项目名称  ： cli-github init testProject
   .action(projectname => {
     if (fs.existsSync(projectname)) {
       // 错误提示项目已存在，避免覆盖原有项目
@@ -34,7 +34,6 @@ commander
 
         // 下载一个项目模板到本地
         download(
-          // "github:yuying123/test-cli.git",
           "direct:https://github.com/yuying123/cli-template.git",
           projectname,
           { clone: true },

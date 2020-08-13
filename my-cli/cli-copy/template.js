@@ -5,13 +5,14 @@ const chalk = require('chalk');
  * @Description: 
  * @Author: YUYING
  * @Date: 2020-08-06 17:26:53
- * @LastEditTime: 2020-08-07 14:48:37
+ * @LastEditTime: 2020-08-13 14:57:00
  */
 module.exports = function (creator, options, callback) {
   const {
     name,
     description
   } = options
+  
   // 获取当前命令的执行目录 
   const cwd = process.cwd()
 
@@ -24,16 +25,6 @@ module.exports = function (creator, options, callback) {
   makeDir(pagePath)
   makeDir(srcPath)
 
-  // fs.mkdir(pagePath, { recursive: true }, (err) => {
-  //   if (err){
-  //     console.log(err);
-  //   }
-  // });
-  // fs.mkdir(srcPath, { recursive: true }, (err) => {
-  //   if (err){
-  //     console.log(err);
-  //   }
-  // });
 
   creator.copyTemplate('../../project/package.json', path.join(projectPath, 'package.json'), {
     name,
@@ -42,7 +33,6 @@ module.exports = function (creator, options, callback) {
 
 
   creator.copy('../../project/src/index.html', path.join(pagePath, 'index.html'));
-
   creator.copy('../../project/page/login.js', path.join(srcPath, 'login.js'));
 
   creator.fs.commit(() => {
