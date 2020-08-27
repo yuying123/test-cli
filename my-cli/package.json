@@ -8,8 +8,7 @@
   },
   "bin": {
     "cli-copy": "bin/cli-copy.js",
-    "cli-github": "bin/cli-github.js",
-    "cli-auto": "bin/cli-auto.js"
+    "cli-github": "bin/cli-github.js"
   },
   "author": "",
   "license": "ISC",
